@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+
+  <link rel="stylesheet" href="/style.css">
+
+
+</head>
+
+<body>
+  <section class="navbar">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/register"> Register </a></li>
+        <li><a href="/login"> Login </a></li>
+        <li><a href="/cryptocurrency"> Cryptocurrency </a></li>
+        <li><a href="/news"> News </a></li>
+        <li><a href="/converter"> Converter </a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="login">
+    <h1 class="heading">Login To Your Account</h1>
+
+    <div class="fo">
+      <form name="login" action="/login" method="post">
+        <p>
+          If not registered ?
+          <a href="/register" class="link"> Register Now </a>
+        </p>
+
+        {{#if message}}
+        <h4 class="alert"> {{message}} </h4>
+        {{/if}}
+
+        <div>
+          <input type="text" name="email" autocomplete="off" placeholder="Email" required />
+        </div>
+
+        <div>
+          <input type="password" name="password" autocomplete="off" placeholder="Password" required />
+        </div>
+
+        {{!-- <div class="danger" id="error" style="display: none"></div>
+        <div class="success" id="success" style="display: none"></div> --}}
+
+        <p class="terms">
+          By Clicking on Login, I accept the Terms and Conditions and Privacy
+          Policy.
+        </p>
+
+        <input type="submit" name="login" class="btn" value="Login" />
+
+      </form>
+    </div>
+  </section>
+
+</body>
+
+</html>

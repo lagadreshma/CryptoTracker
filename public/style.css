@@ -1,0 +1,209 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link {
+    color: blue;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    justify-content: space-around;
+    text-align: center;
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+ul li a {
+    color: white;
+    font-size: 18px;
+}
+
+.register {
+    padding: 40px 80px;
+}
+
+.login {
+    padding: 40px 80px;
+}
+
+.heading {
+    color: Blue;
+    font-size: 30px;
+}
+
+.fo {
+    background-color: aqua;
+    padding: 20px;
+}
+
+.fo input {
+    width: 530px;
+    font-size: 14px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    outline: none;
+}
+
+.fo .btn {
+    width: 80px;
+    background-color: green;
+    color: white;
+}
+
+.alert {
+    background-color: rgb(238, 119, 119);
+    width: 50%;
+}
+
+
+/* for Converter */
+
+/* ::selection{
+    color: #fff;
+    background: #101012;
+  } */
+.wrapper {
+    width: 370px;
+    padding: 30px;
+    margin-top: 50px;
+    margin-left: 40%;
+    border-radius: 7px;
+    background: aqua;
+    box-shadow: 7px 7px 20px rgba(8, 0, 0, 0.05);
+}
+
+.wrapper header {
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.wrapper form {
+    margin: 40px 0 20px 0;
+}
+
+.wrapper form :where(input, select, button) {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+}
+
+.wrapper form p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.wrapper form input {
+    height: 50px;
+    font-size: 17px;
+    padding: 0 15px;
+    border: 1px solid #999;
+}
+
+.wrapper form input:focus {
+    padding: 0 14px;
+    border: 2px solid #101012;
+}
+
+.wrapper form .drop-list {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.drop-list .select-box {
+    display: flex;
+    width: 115px;
+    height: 45px;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+
+.select-box img {
+    max-width: 21px;
+}
+
+.select-box select {
+    width: auto;
+    font-size: 16px;
+    background: none;
+    margin: 0 -5px 0 5px;
+}
+
+.select-box select::-webkit-scrollbar {
+    width: 8px;
+}
+
+.select-box select::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.select-box select::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+    border-right: 2px solid #ffffff;
+}
+
+.drop-list .icon {
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+.exchange-rate {
+    font-size: 17px;
+    margin: 10px 0 20px;
+    color: rgb(47, 47, 206);
+}
+
+.wrapper form button {
+    height: 52px;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    background: #101012;
+    transition: 0.3s ease;
+}
+
+.wrapper form button:hover {
+    background: #101012;
+}

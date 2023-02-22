@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 
-require("dotenv").config;
+require("dotenv").config();
 
 var con = mysql.createPool({
     host: process.env.HOST,
@@ -9,8 +9,8 @@ var con = mysql.createPool({
     database: process.env.DATABASE
 });
 
-con.getConnection(function(err){
-    if(err) throw err;
+con.getConnection((err) => {
+    if (err) throw console.log(err);
     console.log("Database Connected Successfully");
 });
 

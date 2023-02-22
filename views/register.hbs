@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Page</title>
+
+    <link rel="stylesheet" href="/style.css" />
+
+</head>
+
+<body>
+    <section class="navbar">
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+        <li><a href="/register"> Register </a></li>
+        <li><a href="/login"> Login </a></li>
+        <li><a href="/cryptocurrency"> Cryptocurrency </a></li>
+        <li><a href="/news"> News </a></li>
+        <li><a href="/converter"> Converter </a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="register">
+        <h1 class="heading">Create Your Account</h1>
+
+        <div class="fo">
+            <form name="register" action="/register" method="POST">
+                <p>
+                    Already Registred ?
+                    <a href="/login" class="link"> Login Now </a>
+                </p>
+                <br />
+
+                <input type="text" name="name" autocomplete="off" placeholder="Username" required />
+
+                <br />
+
+                <input type="text" name="email" autocomplete="off" placeholder="Email" required />
+
+                <br />
+
+                <input type="password" name="password" autocomplete="off" placeholder="Password" required />
+
+                <br />
+
+                <input type="password" name="cpassword" autocomplete="off" placeholder="Confirm Password" required />
+
+                <br />
+                {{!-- <div class="danger" id="error" style="display: none"></div>
+                <div class="success" id="success" style="display: none"></div> --}}
+                <br />
+
+                <p class="terms">
+                    By Creating an Account, I accept the Terms and Conditions and
+                    Privacy Policy.
+                </p>
+
+                <input type="submit" name="register" class="btn" value="submit" />
+
+                <br />
+
+                {{#if message}}
+                <h4 class="alert"> {{message}} </h4>
+                {{/if}}
+
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
