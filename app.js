@@ -1,165 +1,182 @@
 const express = require("express");
 require("dotenv").config();
 const app = express();
+const path = require("path");
 
-var con = require("./connection");
+const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
+
+const con = require("./connection");
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('view engine','ejs');
+const session = require('express-session');
+app.use(session({
+    secret: 'poppie pants',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}));
 
-const port = process.env.PORT || 3000;
+const publicDir = path.join(__dirname + '/public');
+app.use(express.static(publicDir));
 
-app.listen(port, () => {
-    console.log("Server is up and running");
+// parse URL encoded bodies(as sent by HTML forms)
+app.use(express.urlencoded({ extended: false }));
+// parse JSON bodies
+app.use(express.json());
+
+app.set('view engine', 'hbs');
+
+
+
+// for fecthing pages get requests
+app.get('/', (req, res) => {
+    res.render("index");
 });
 
-app.get("/", function(req, res){
-    res.sendFile(__dirname + "/index.html");
+app.get('/login', (req, res) => {
+    res.render("login");
 });
 
-app.get("/register", function(req, res){
-  res.sendFile(__dirname + "/register.html");
-});
+app.post("/login", (req, res) => {
 
+    const email = req.body.email;
+    const password = req.body.password;
 
-app.get("/login", function(req, res){
-  res.sendFile(__dirname + "/login.html");
-});
-    
-app.post("/", function(req, res) {
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
+    if (!email || !password) {
+        return res.render('login', { message: 'Please Enter Your Email and Password.' });
+    } else {
+        con.query('SELECT * FROM users WHERE email=?', [email], async (error, result) => {
 
-    console.log(name, email, password);
+            if (error) console.log(error);
 
-    //let sql = "INSERT INTO users(username, email, password) VALUES(?, ?, ?)";
-     let sql = "INSERT INTO users(username, email, password) VALUES('"+ name +"', '"+ email +"' , '"+ password +"')"
+            if (!result.length || !await bcrypt.compare(password, result[0].password)) {
+                return res.render('login', { message: 'Incorrect Email or Password.' });
+            } else {
+                res.render("home");
+            }
 
-    // let values = [[name, email, password]];
-
-    con.query(sql, function(err, result){
-        if (err) throw err;
-
-        console.log("Data Uploaded.");
-
-        res.send("User Registerd Successfully." + result.insertId);
-    });
-
-});
-
-app.get('/users', function(req, res){
-    con.getConnection(function(error){
-        if(error) 
-          console.log(error);
-        
-        var select = "select * from users";
-
-        con.query(select, function(error, result){
-            if(error) 
-              console.log(error);
-
-            res.render(__dirname + "/users", {users : result});
         });
-    });
+    }
+
 });
 
-app.get('/delete-user', function(req, res){
-    con.getConnection(function(error){
-        if(error) 
-          console.log(error);
-        
-        var deleteuser = "delete from users where id= ?";
-
-        let id = req.query.id;
-
-        con.query(deleteuser, [id], function(error, result){
-            if(error) 
-              console.log(error);
-
-            res.redirect( "/users");
-        });
-    });
+app.get('/register', (req, res) => {
+    res.render("register");
 });
 
 
-app.get('/update-user', function(req, res){
-    con.getConnection(function(error){
-        if(error) 
-          console.log(error);
-        
-        var deleteuser = "select * from users where id= ?";
+// For Registration post request
+app.post("/register", (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+    const cpassword = req.body.cpassword;
 
-        let id = req.query.id;
+    console.log(name, email, password, cpassword);
 
-        con.query(deleteuser, [id], function(error, result){
-            if(error) 
-              console.log(error);
+    const selectQuery = "SELECT * FROM users";
 
-            res.render(__dirname +  "/update-user", {user: result});  // user name pass to update-user.ejs
-        });
-    });
-});
+    let userEmail = req.query.email;
 
-app.post('/update-user', function(req, res){
+    con.query(selectQuery, userEmail, async (error, results) => {
 
-    let id = req.body.id;
-    let name = req.body.name;
-    let email = req.body.email;
-    let password = req.body.password;
-
-    con.getConnection(function(error){
-        if(error) 
-          console.log(error);
-        
-        var updateQuery = "update users set username=?, email=?, password=? where id= ?";
-
-        con.query(updateQuery, [name, email, password,id], function(error, result){
-            if(error) 
-              console.log(error);
-
-            res.redirect('/users');
-        });
-    });
-});
-
-app.get('/search-users', function(req, res){
-  con.getConnection(function(error){
-      if(error) 
-        console.log(error);
-      
-      var searchuser = "select * from users";
-
-      con.query(searchuser, function(error, result){
-          if(error) 
+        if (error) {
             console.log(error);
+        }
 
-          res.render(__dirname +  "/search-users", {users: result});
-      });
-  });
+        if (results.length > 0) {
+            if (email == userEmail) {
+                return res.render('register', { message: 'That Email is Already in use' });
+            }
+        } else if (password !== cpassword) {
+            return res.render('register', { message: 'Password do not match' });
+        }
+
+        // by default and secure round password is 8
+        let hashpassword = await bcrypt.hash(password, 8);
+
+
+        console.log(hashpassword);
+
+        const insertQuery = "INSERT INTO users(username, email, password) VALUES('" + name + "', '" + email + "' , '" + hashpassword + "')";
+
+        con.query(insertQuery, (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Data Uploaded.");
+
+                res.render("login");
+
+            }
+
+        });
+
+
+    });
+
+
 });
 
-app.get('/search', function(req, res){
 
-   let name = req.query.name;
-   let email = req.query.email;
-   let password = req.query.password;
+// for currency converter page before login
+app.get('/converter', (req, res) => {
+    res.render("converter");
+});
 
-   con.getConnection(function(error){
-      if(error) console.log(error);
+// for news page before login
+app.get('/news', (req, res) => {
+    res.render("news");
+});
 
-      var search = "SELECT * from users where username LIKE '%"+name+"%' AND email LIKE '%"+email+"%' AND password LIKE '%"+password+"%' ";
+// for cryptocurrencies page before login
+app.get('/cryptocurrency', (req, res) => {
+    res.render("cryptocurrency");
+});
 
-      con.query(search, function(error, result){
-          if(error) console.log(error);
 
-          res.render(__dirname + '/search-users' , {users: result});
-      });
 
-   });
+// after login display home page
+app.get('/home', (req, res) => {
+    res.render("home", { name: 'Reshma' });
+});
 
+
+// for currency converter after login
+app.get('/user_converter', (req, res) => {
+    res.render("user_converter");
+});
+
+// for news page after login
+app.get('/user_news', (req, res) => {
+    res.render("user_news");
+});
+
+// for crypto currencies page after login
+app.get('/user_cryptocurrency', (req, res) => {
+    res.render("user_cryptocurrency");
+});
+
+// for watchlist page 
+app.get('/watchlist', (req, res) => {
+    res.render("watchlist");
+});
+
+
+
+// for logout
+app.get('/logout', (req, res) => {
+    res.render("index");
+});
+
+
+
+// host on port 5000
+app.listen(5000, () => {
+    console.log("Server is up and running");
 });
