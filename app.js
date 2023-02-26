@@ -176,6 +176,22 @@ app.get('/logout', (req, res) => {
 
 
 
+
+
+
+
+// for MarketCap
+let url = `https://coinmarketcap.com/api/cda45a51-b49c-41de-95d0-98c41ce289bc/latest`;
+
+// cda45a51-b49c-41de-95d0-98c41ce289bc
+
+
+
+
+
+
+
+
 // host on port 5000
 app.listen(5000, () => {
     console.log("Server is up and running");
