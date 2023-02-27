@@ -4,10 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {{!
+      Reload page every 5 second
+  -- <meta http-equiv="refresh" content="5"> 
+  
+  --}}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Index Page </title>
 
-  <link rel="stylesheet" href="/style.css">
+  
+
+  <!-- Matrial Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+
+    <!-- CSS File Link -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/crypto_info.css">
+
+    <!-- Font awesome icon link -->      
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -15,16 +30,272 @@
 
   <section class="navbar">
     <nav>
-      <ul>
+            <div class="logo">
+          <a href="/"><h2>Crypto<span>Verse</span></h2></a>
+      </div>
+
+        <div class="navitems" id="navlinks">
+
+           <i class = "fa fa-times" onclick= "show();"></i>
+
+          <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/register"> Register </a></li>
-        <li><a href="/login"> Login </a></li>
         <li><a href="/cryptocurrency"> Cryptocurrency </a></li>
         <li><a href="/news"> News </a></li>
         <li><a href="/converter"> Converter </a></li>
+        <li><a href="/register"> Sign Up </a></li>
+        <li class="sign-in"><a href="/login"> Sign In </a></li>
       </ul>
-    </nav>
+        </div>
+
+        <i class = "fa fa-bars" onclick= "hide();"></i>
+      
+        </nav>
   </section>
+
+  <section class="crypto_information">
+
+    <div class="cryptoTotal">
+
+        <h1 class="heading"> Global Crypto Stats </h1>
+
+            <div class="cryptoInfo">
+                <div class="row">
+                <div class="totalCoins">
+
+            <p> Total Coins : <span id="totalCoins"></span></p>
+
+        </div>
+        <div class="totalMarkets">
+
+            <p> Total Markets : <span id="totalMarkets"></span></p>
+
+        </div>
+            </div>
+        <div class="row">
+            <div class="totalExchanges">
+
+            <p> Total Exchanges : <span id="totalExchanges"></span></p>
+
+        </div>
+        <div class="totalMarketCaps">
+
+            <p> Total MarketCap : <span id="totalMarketCaps"></span></p>
+
+        </div>
+        </div>
+        <div class="row">
+          <div class="total24hVolume">
+
+            <p> Total 24h Volume : <span id="total24hVolume"></span></p>
+
+        </div>
+        </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <h1 class="heading"> Cryptos in the World </h1>
+    <div class="row">
+        <div id="cryptos">
+
+            <!-- <div class="crypto">
+    
+                <div class="first">
+                    <p class="rank"> Rank : </p>
+                    <p class="name"> Name : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="rank"> Rank : </p>
+                    <p class="price"> Price : $ </p>
+                    <p class="marketCap"> MarketCap : </p>
+                    <p class="dailyChange"> Daily Change : </p>
+                </div>
+    
+            </div> -->
+
+        </div>
+    </div>
+
+    <h1 class="heading"> Latest Crypto News </h1>
+    <div class="row">
+        <div id="news">
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="/apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+
+            <div class="crypto_news">
+    
+                <div class="first">
+                    <p class="Title"> Title : </p>
+                    <img src="apple.jpg" alt="" class="image" width="100px" height="100px">
+                </div>
+                <hr>
+                <div class="second">
+                    <p class="Description"> Description : </p>
+                </div>
+                <div class="first news">
+                    <p class="company"> Company : </p>
+                    <p class="time"> Time : </p>
+                </div>
+    
+            </div>
+    
+        </div>
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+  <script src="/main.js"></script>
+  <script src="/crypto_info.js"></script>
+  <script src="/news_info.js"></script>
 
 </body>
 

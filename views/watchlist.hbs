@@ -2,31 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Index Page </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Index Page </title>
 
+  
+
+  <!-- Matrial Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+
+    <!-- CSS File Link -->
     <link rel="stylesheet" href="/style.css">
+
+    <!-- Font awesome icon link -->      
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <section class="navbar">
-        <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/user_cryptocurrency"> Cryptocurrency </a></li>
-                <li><a href="/user_news"> News </a></li>
-                <li><a href="/user_converter"> Converter </a></li>
-                <li><a href="/watchlist"> Watchlist </a></li>
-                <li><a href="/logout"> Logout </a></li>
-            </ul>
-        </nav>
-    </section>
+  <section class="navbar">
+    <nav>
+            <div class="logo">
+          <a href="/"><h2>Crypto<span>Verse</span></h2></a>
+      </div>
 
-    <h1> Watchlist </h1>
+        <div class="navitems" id="navlinks">
+
+           <i class = "fa fa-times" onclick= "show();"></i>
+
+          <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/user_cryptocurrency"> Cryptocurrency </a></li>
+        <li><a href="/user_news"> News </a></li>
+        <li><a href="/user_converter"> Converter </a></li>
+        <li><a href="/logout"> Logout </a></li>
+        <li><a href="/watchlist"> Watchlist </a></li>
+      </ul>
+        </div>
+
+        <i class = "fa fa-bars" onclick= "hide();"></i>
+      
+        </nav>
+  </section>
+
+  <script src="/main.js"></script>
 
 </body>
 
