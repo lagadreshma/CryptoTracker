@@ -1,0 +1,247 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Verdana, Tahoma, sans-serif;
+    background-color: #000;
+}
+
+
+/* ------------------------------- */
+
+.heading{
+    color: orangered;
+    margin-top: 50px;
+}
+
+.cryptoTotal{
+    color: white;
+}
+
+.cryptoInfo{
+    width: 80%;
+    background-color: #555;
+    margin: 20px 70px;
+    padding: 30px;
+}
+
+.cryptoInfo div{
+    margin-right: 90px;
+    padding: 10px;
+}
+
+.cryptoInfo div p{
+    padding: 10px;
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    color: black;
+}
+
+.cryptoInfo div span{
+    color: blue;
+}
+
+
+
+/* ---------------------------- */
+
+.row{
+    display: flex;
+}
+
+
+#cryptos, #news{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 50px;
+    justify-content: space-around;
+}
+
+.crypto, .crypto_news{
+    width: 220px;
+    max-width: 250px;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.first{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.second{
+    margin: 10px;
+    line-height: 20px;
+}
+
+.rank, .name{
+    padding: 2px;
+}
+
+.name{
+   padding-right: 25px;
+}
+
+.image{
+    width: 70px;
+    height: 70px;
+    padding: 0px 10px;
+    /* background-color: #a09e9e; */
+    border-radius: 10px;
+}
+
+.first p, .second p{
+    font-size: 12px;
+    color: #555;
+}
+
+.first p{
+    color: blue;
+    font-weight: 600;
+}
+
+
+.dailyChange span{
+    color: rgb(30, 219, 30);
+}
+
+#news .news{
+    display: flex;
+    gap: 30px;
+}
+
+
+
+
+
+
+/* ---------------Media Queries for Responsive -------------- */
+
+@media only screen and (max-width:1200px){
+
+    .cryptoInfo{
+        width: 80%;
+        margin: 20px 50px;
+        padding: 20px;
+    }
+    
+    .cryptoInfo div{
+        margin-right: 90px;
+        padding: 10px;
+    }
+    
+    .cryptoInfo div p{
+        padding: 10px;
+        width: 370px;
+    }
+    
+    
+}
+
+@media only screen and (max-width:1100px){
+
+    .cryptoInfo{
+        width: 90%;
+        margin: 20px 20px;
+        padding: 30px;
+    }
+
+    .cryptoInfo div{
+        margin-right: 30px;
+        padding: 10px;
+    }
+
+    .cryptoInfo div p{
+        width: 350px;
+    }
+    
+}
+
+@media only screen and (max-width:865px){
+
+    .cryptoInfo{
+        width: 95%;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .cryptoInfo div{
+        margin-right: 0px;
+    }
+
+    .cryptoInfo div p{
+        width: 320px;
+    }
+
+    .crypto, .crypto_news{
+        width: 270px;
+        max-width: 300px;
+    }
+
+    
+}
+
+
+@media only screen and (max-width: 646px){
+
+    .cryptoInfo{
+        width: 90%;
+        margin: 20px;
+        padding: 10px;
+    }
+    
+   .cryptoInfo .row{
+       display: flex;
+       flex-direction: column;
+   }
+
+   .crypto, .crypto_news{
+    width: 190px;
+    max-width: 220px;
+   }
+
+   .image{
+    width: 50px;
+    height: 60px;
+    padding: 0px 5px;
+   }
+
+   .first p, .second p{
+     font-size: 10px;
+   }
+
+}
+
+@media only screen and (max-width: 414px){
+
+    .cryptoInfo{
+        width: 90%;
+        margin: 10px;
+        padding: 0px;
+    }
+
+    .cryptoInfo div p{
+        width: 310px;
+    }
+    
+    .crypto, .crypto_news{
+        width: 270px;
+        max-width: 300px;
+    }
+
+    .image{
+        width: 70px;
+        height: 70px;
+        padding: 0px 10px;
+    }
+    
+    
+
+}

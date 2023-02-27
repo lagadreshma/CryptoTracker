@@ -396,7 +396,7 @@ ul .sign-in{
     /* for navigation bar */
 
     .logo a h2{
-        font-size: 25px;
+        font-size: 30px;
     }
     .logo span{
         font-size: 20px;
@@ -453,6 +453,53 @@ ul .sign-in{
     .fo input{
         width: 300px;
     }
+
+
+}
+
+@media only screen and (max-width: 414px){
+    
+    /* for navigation bar */
+
+    nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav .navitems{
+        width: 300px;
+        right: -300px;
+    }
+
+    nav .fa-times{
+        margin-left: 80px;
+    }
+    nav .fa-bars{ 
+        position: absolute;
+        margin-left: 300px;
+    }
+    
+    /* ----------------- register and login page ----------------  */
+    
+    .register , .login{
+        padding: 40px 20px;
+    }
+
+    .fo input{
+        width: 250px;
+    }
+
+    /* ------------------- converter page------------------ */
+
+.wrapper {
+    width: 300px;
+    padding: 10px;
+    margin-left: 10%;
+}
+
+.wrapper header {
+    font-size: 20px;
+}
 
 
 }
