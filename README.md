@@ -15,3 +15,6 @@ Show API on webpage using -
 Registration and Login using  - 
   Node JS and MySQL
     
+.hbs files -
+  hbs - HandleBars (Html handlers in node js)
+  
