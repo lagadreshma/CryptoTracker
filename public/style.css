@@ -271,7 +271,7 @@ ul .sign-in{
     border-radius: 5px;
     justify-content: center;
     border: 1px solid #999;
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 .select-box img {
@@ -290,13 +290,13 @@ ul .sign-in{
 }
 
 .select-box select::-webkit-scrollbar-track {
-    background: #fff;
+    background: var(--white);
 }
 
 .select-box select::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 8px;
-    border-right: 2px solid #ffffff;
+    border-right: 2px solid var(--white);
 }
 
 .drop-list .icon {
@@ -308,12 +308,12 @@ ul .sign-in{
 .exchange-rate {
     font-size: 17px;
     margin: 10px 0 20px;
-    color: rgb(47, 47, 206);
+    color: var(--blue);
 }
 
 .wrapper form button {
     height: 52px;
-    color: #fff;
+    color: var(--white);
     font-size: 17px;
     cursor: pointer;
     background: #101012;

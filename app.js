@@ -9,6 +9,9 @@ const bcrypt = require('bcryptjs');
 const con = require("./connection");
 const bodyParser = require("body-parser");
 
+//var popup = require("popups");
+let alert = require('alert');
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -57,7 +60,13 @@ app.post("/login", (req, res) => {
             if (!result.length || !await bcrypt.compare(password, result[0].password)) {
                 return res.render('login', { message: 'Incorrect Email or Password.' });
             } else {
-                res.render("home");
+
+                alert("Login Successfull");
+
+                //  popup.alert({
+                //     content: "Register Successfull"
+                //  });
+                 res.render('home');
             }
 
         });
@@ -110,7 +119,7 @@ app.post("/register", (req, res) => {
                 console.log(err);
             } else {
                 console.log("Data Uploaded.");
-
+                alert("Register Successfull");
                 res.render("login");
 
             }
@@ -175,21 +184,10 @@ app.get('/logout', (req, res) => {
 });
 
 
-
-
-
-
-
 // for MarketCap
 let url = `https://coinmarketcap.com/api/cda45a51-b49c-41de-95d0-98c41ce289bc/latest`;
 
 // cda45a51-b49c-41de-95d0-98c41ce289bc
-
-
-
-
-
-
 
 
 // host on port 5000

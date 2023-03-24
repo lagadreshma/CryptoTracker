@@ -117,7 +117,10 @@ body{
     gap: 30px;
 }
 
-
+.news p{
+    display: flex;
+    color: black;
+}
 
 
 

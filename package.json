@@ -10,6 +10,7 @@
   "author": "Reshma Lagad",
   "license": "ISC",
   "dependencies": {
+    "alert": "^5.1.4",
     "axios": "^1.3.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
@@ -20,6 +21,7 @@
     "hbs": "^4.2.0",
     "jsonwebtoken": "^9.0.0",
     "mysql": "^2.18.1",
+    "popups": "^1.1.3",
     "req-flash": "0.0.3"
   }
 }
