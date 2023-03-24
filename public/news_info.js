@@ -1,6 +1,5 @@
-var baseUrl = "https://news-api14.p.rapidapi.com/top-headlines";
-//var proxyUrl = "https://cors-anywhere.herokuapp.com/";
-var apiKey = "6c4c673500msh0b76af05239829cp1d12f0jsne2528cd2e856";
+var baseUrl = "news api url";
+var apiKey = "api key";
 
 
 fetch(`${baseUrl}`, { 
